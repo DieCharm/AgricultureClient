@@ -1,0 +1,18 @@
+<h2>Data Set</h2>
+<table mdbTable mdbTableScroll class="w-auto" scrollY="true" maxHeight="200" bordered="true" border="1">
+  <thead>
+  <th *ngFor="let header of tableHeaders">
+    {{header}}
+  </th>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let item of forTable">
+    <td *ngFor="let value of item">
+      {{value}}
+    </td>
+    <td>edit</td>
+    <td><i class="far fa-trash-alt fa-lg text-danger"></i></td>
+  </tr>
+  </tbody>
+</table>
