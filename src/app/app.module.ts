@@ -8,25 +8,43 @@ import {RouterModule, Routes} from "@angular/router";
 import {TableListComponent} from './table.list/table.list.component';
 import {MDBRootModule} from 'angular-bootstrap-md';
 import { CropFormComponent } from './forms/crop.form/crop.form.component';
+import { IncomeandexpensesFormComponent } from './forms/incomeandexpenses.form/incomeandexpenses.form.component';
+import { FieldFormComponent } from './forms/field.form/field.form.component';
+import { SalesinvoiceFormComponent } from './forms/salesinvoice.form/salesinvoice.form.component';
+import { TechnologicaloperationFormComponent } from './forms/technologicaloperation.form/technologicaloperation.form.component';
+import { PlannedwaybillFormComponent } from './forms/plannedwaybill.form/plannedwaybill.form.component';
+import { RequirementFormComponent } from './forms/requirement.form/requirement.form.component';
+import { WorkorderFormComponent } from './forms/workorder.form/workorder.form.component';
+import { AttractingworkersFormComponent } from './forms/attractingworkers.form/attractingworkers.form.component';
+import { QualificationFormComponent } from './forms/qualification.form/qualification.form.component';
 
 const routes: Routes = [
-  {path: 'crop', component: AppComponent},
-  {path: 'incomeandexpenses', component: AppComponent},
-  {path: 'field', component: AppComponent},
-  {path: 'salesinvoice', component: AppComponent},
-  {path: 'operation', component: AppComponent},
-  {path: 'waybill', component: AppComponent},
-  {path: 'requirement', component: AppComponent},
-  {path: 'order', component: AppComponent},
-  {path: 'attractingworker', component: AppComponent},
-  {path: 'qualification', component: AppComponent}
+  {path: 'crop', component: CropFormComponent},
+  {path: 'incomeandexpenses', component: IncomeandexpensesFormComponent},
+  {path: 'field', component: FieldFormComponent},
+  {path: 'salesinvoice', component: SalesinvoiceFormComponent},
+  {path: 'operation', component: TechnologicaloperationFormComponent},
+  {path: 'waybill', component: PlannedwaybillFormComponent},
+  {path: 'requirement', component: RequirementFormComponent},
+  {path: 'order', component: WorkorderFormComponent},
+  {path: 'attractingworker', component: AttractingworkersFormComponent},
+  {path: 'qualification', component: QualificationFormComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     TableListComponent,
-    CropFormComponent
+    CropFormComponent,
+    IncomeandexpensesFormComponent,
+    FieldFormComponent,
+    SalesinvoiceFormComponent,
+    TechnologicaloperationFormComponent,
+    PlannedwaybillFormComponent,
+    RequirementFormComponent,
+    WorkorderFormComponent,
+    AttractingworkersFormComponent,
+    QualificationFormComponent
   ],
   imports: [
     BrowserModule,

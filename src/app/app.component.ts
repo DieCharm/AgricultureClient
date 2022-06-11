@@ -14,6 +14,8 @@ import {PlannedRequirement} from "../models/plannedRequirement";
 import {WorkOrder} from "../models/workOrder";
 import {AttractingWorkers} from "../models/attractingWorkers";
 import {WorkerQualification} from "../models/workerQualification";
+import {Subscription} from "rxjs";
+import {CropFormComponent} from "./forms/crop.form/crop.form.component";
 
 @Component({
   selector: 'app-root',
@@ -22,51 +24,51 @@ import {WorkerQualification} from "../models/workerQualification";
 })
 export class AppComponent {
   currentPath: string = "";
-  array:object[] = [];
-  keys: string[] = [];
-  model: object = { };
+  array: object[] = [];
+  subscription: Subscription = new Subscription();
 
-  constructor(private httpService: HttpService) { }
+  constructor(public httpService: HttpService) { }
 
   initializePage(path: string) {
     this.currentPath = environment.serverLink + "/" + path;
+
     switch (path) {
       case 'crop':
-        this.model = new Crop();
+        this.httpService.model = new Crop();
         break;
       case 'field':
-        this.model = new Field();
+        this.httpService.model = new Field();
         break;
       case 'incomeandexpenses':
-        this.model = new IncomeAndExpenses();
+        this.httpService.model = new IncomeAndExpenses();
         break;
       case 'salesinvoice':
-        this.model = new SalesInvoice();
+        this.httpService.model = new SalesInvoice();
         break;
       case 'operation':
-        this.model = new TechnologicalOperation();
+        this.httpService.model = new TechnologicalOperation();
         break;
       case 'waybill':
-        this.model = new PlannedWaybill();
+        this.httpService.model = new PlannedWaybill();
         break;
       case 'requirement':
-        this.model = new PlannedRequirement();
+        this.httpService.model = new PlannedRequirement();
         break;
       case 'order':
-        this.model = new WorkOrder();
+        this.httpService.model = new WorkOrder();
         break;
-      case 'attractingworkers':
-        this.model = new AttractingWorkers();
+      case 'attractingworker':
+        this.httpService.model = new AttractingWorkers();
         break;
       case 'qualification':
-        this.model = new WorkerQualification();
+        this.httpService.model = new WorkerQualification();
         break;
     }
-    this.keys = Object.keys(this.model);
     this.get();
   }
 
   get() {
+    console.log("getting...");
     this.httpService.get(this.currentPath)
       .toPromise()
       .then(result =>
@@ -77,11 +79,22 @@ export class AppComponent {
       });
   }
 
-  post(target: object) {
-    this.httpService.post(this.currentPath, target);
+  subscribeToForm(formComponent: any) {
+    formComponent.onSubmit.subscribe(() => {
+      this.httpService.post(this.currentPath);
+      this.get();
+    });
+  }
+
+  unsubscribe() {
+    if (this.subscription)
+    {
+      this.subscription.unsubscribe();
+    }
   }
 
   delete(id: number) {
     this.httpService.delete(this.currentPath, id);
+    this.get();
   }
 }

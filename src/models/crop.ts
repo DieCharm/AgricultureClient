@@ -1,10 +1,10 @@
 export class Crop {
-  Id: number;
-  CropName: string;
-  PlannedWeight: number;
-  constructor() {
-    this.Id = 0;
-    this.CropName = '';
-    this.PlannedWeight = 0;
+  id: number;
+  cropName: string;
+  plannedWeight: number;
+  constructor(id: number = 0, name: string = '', weight: number = 0) {
+    this.id = id;
+    this.cropName = name;
+    this.plannedWeight = weight;
   }
 }

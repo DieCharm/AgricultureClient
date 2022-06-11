@@ -2,3 +2,13 @@ a:hover
 {
   cursor: pointer;
 }
+
+table-list {
+  float: left;
+}
+
+router-outlet {
+  float: right;
+}
+
+

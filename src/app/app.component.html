@@ -60,4 +60,6 @@
   </li>
 </ul>
 
-<table-list [keys] = "keys" [array]="array"></table-list>
+<table-list [array]="array" (onDelete)="delete($event)"></table-list>
+
+<router-outlet (activate)="subscribeToForm($event)" (deactivate)="unsubscribe()"></router-outlet>
