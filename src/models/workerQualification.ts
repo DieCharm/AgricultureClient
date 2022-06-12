@@ -1,10 +1,10 @@
 export class WorkerQualification {
-  Id: number;
-  QualificationName: string;
-  HourlyPayment: number;
+  id: number;
+  qualificationName: string;
+  hourlyPayment: number;
   constructor() {
-    this.Id = 0;
-    this.QualificationName = '';
-    this.HourlyPayment = 0;
+    this.id = 0;
+    this.qualificationName = '';
+    this.hourlyPayment = 0;
   }
 }

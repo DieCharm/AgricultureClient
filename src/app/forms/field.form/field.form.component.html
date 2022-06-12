@@ -1,1 +1,19 @@
-<p>field.form works!</p>
+<div class="form-container">
+  <h2>Add/Update Items</h2>
+  <form #myForm="ngForm" novalidate>
+    <div class="form-group">
+      <label>Crop Id</label>
+      <input class="form-control" type="number" name="crop"
+             [(ngModel)]="inputModel.cropId" required />
+    </div>
+    <div class="form-group">
+      <label>Square</label>
+      <input class="form-control" type="number" name="square" [min]="0"
+             [(ngModel)]="inputModel.square" required/>
+    </div>
+    <div class="form-group">
+      <button [disabled]="myForm.invalid"
+              class="btn btn-default" (click)="submit()">Submit</button>
+    </div>
+  </form>
+</div>

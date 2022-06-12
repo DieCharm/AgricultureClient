@@ -1,1 +1,25 @@
-<p>workorder.form works!</p>
+<div class="form-container">
+  <h2>Add/Update Items</h2>
+  <form #myForm="ngForm" novalidate>
+    <div class="form-group">
+      <label>Operation Id</label>
+      <input class="form-control" type="number" name="crop" [min]="0"
+             [(ngModel)]="inputModel.operationId" required />
+    </div>
+    <div class="form-group">
+      <label>Work Type</label>
+      <input class="form-control" type="text" name="square" minlength="3"
+             [(ngModel)]="inputModel.workType" required/>
+    </div>
+    <div class="form-group">
+      <label>Completion Time</label>
+      <input class="form-control" type="number" name="time" [min]="0"
+             [(ngModel)]="inputModel.completionTime" required/>
+    </div>
+    <div class="form-group">
+      <button [disabled]="myForm.invalid"
+              class="btn btn-default" (click)="submit()">Submit</button>
+    </div>
+  </form>
+</div>
+

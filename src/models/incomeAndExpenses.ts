@@ -1,14 +1,14 @@
 export class IncomeAndExpenses {
-  Id: number;
-  CropId: number;
-  Year: number;
-  Income: number;
-  Expenses: number;
+  id: number;
+  cropId: number;
+  year: number;
+  income: number;
+  expenses: number;
   constructor() {
-    this.Id = 0;
-    this.CropId = 0;
-    this.Year = 0;
-    this.Income = 0;
-    this.Expenses = 0;
+    this.id = 0;
+    this.cropId = 0;
+    this.year = 0;
+    this.income = 0;
+    this.expenses = 0;
   }
 }

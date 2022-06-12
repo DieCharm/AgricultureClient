@@ -1,12 +1,12 @@
 export class SalesInvoice {
-  Id: number;
-  CropId: number;
-  Quantity: number;
-  Price: number;
+  id: number;
+  cropId: number;
+  quantity: number;
+  price: number;
   constructor() {
-    this.Id = 0;
-    this.CropId = 0;
-    this.Quantity = 0;
-    this.Price = 0;
+    this.id = 0;
+    this.cropId = 0;
+    this.quantity = 0;
+    this.price = 0;
   }
 }

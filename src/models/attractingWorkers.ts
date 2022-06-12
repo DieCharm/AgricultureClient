@@ -1,13 +1,13 @@
 export class AttractingWorkers {
-  Id: number;
-  OrderId:number;
-  QualificationId: number;
-  Quantity: number;
+  id: number;
+  orderId:number;
+  qualificationId: number;
+  quantity: number;
 
   constructor() {
-    this.Id = 0;
-    this.OrderId = 0;
-    this.QualificationId = 0;
-    this.Quantity = 0;
+    this.id = 0;
+    this.orderId = 0;
+    this.qualificationId = 0;
+    this.quantity = 0;
   }
 }

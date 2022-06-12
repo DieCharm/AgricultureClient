@@ -1,1 +1,29 @@
-<p>plannedwaybill.form works!</p>
+<div class="form-container">
+  <h2>Add/Update Items</h2>
+  <form #myForm="ngForm" novalidate>
+    <div class="form-group">
+      <label>Operation Id</label>
+      <input class="form-control" type="number" name="operation" [min]="0"
+             [(ngModel)]="inputModel.operationId" required />
+    </div>
+    <div class="form-group">
+      <label>Car Name</label>
+      <input class="form-control" type="text" name="car" minlength="3"
+             [(ngModel)]="inputModel.carName" required/>
+    </div>
+    <div class="form-group">
+      <label>Work Time</label>
+      <input class="form-control" type="date" name="date"
+             [(ngModel)]="inputModel.workTime" required/>
+    </div>
+    <div class="form-group">
+      <label>Fuel Consumption</label>
+      <input class="form-control" type="number" name="square" [min]="0"
+             [(ngModel)]="inputModel.fuelConsumptionPerAreaUnit" required/>
+    </div>
+    <div class="form-group">
+      <button [disabled]="myForm.invalid"
+              class="btn btn-default" (click)="submit()">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,10 +1,10 @@
 export class Field {
-  Id: number;
-  CropId: number;
-  Square: number;
+  id: number;
+  cropId: number;
+  square: number;
   constructor() {
-    this.Id = 0;
-    this.CropId = 0;
-    this.Square = 0;
+    this.id = 0;
+    this.cropId = 0;
+    this.square = 0;
   }
 }

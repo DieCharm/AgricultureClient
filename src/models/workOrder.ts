@@ -1,12 +1,12 @@
 export class WorkOrder {
-  Id: number;
-  OperationId: number;
-  WorkType: string;
-  CompletionTime: number;
+  id: number;
+  operationId: number;
+  workType: string;
+  completionTime: number;
   constructor() {
-    this.Id = 0;
-    this.OperationId = 0;
-    this.WorkType = '';
-    this.CompletionTime = 0;
+    this.id = 0;
+    this.operationId = 0;
+    this.workType = '';
+    this.completionTime = 0;
   }
 }

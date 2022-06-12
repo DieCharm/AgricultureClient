@@ -1,16 +1,19 @@
+h2 {
+  align-self: center;
+  color: #495057;
+}
+
 a:hover
 {
   cursor: pointer;
 }
 
-scrollable-container {
-}
-
 table {
   margin-top: 34px;
-  overflow-y: scroll;
+  margin-left: 30px;
   display: block;
-  width: 100%;
+  overflow-y: scroll;
+  color: #495057;
 }
 
 td {
@@ -52,7 +55,7 @@ button {
 }
 
 .for-table {
-  width: 60%;
+  width: 65%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -60,6 +63,9 @@ button {
 }
 
 .for-form {
-  width: 40%;
+  width: 35%;
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }

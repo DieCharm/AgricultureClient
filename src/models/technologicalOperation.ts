@@ -1,12 +1,12 @@
 export class TechnologicalOperation {
-  Id: number;
-  CropId: number;
-  OperationName: string;
-  ProcessingOfOneHectareDuration: number;
+  id: number;
+  cropId: number;
+  operationName: string;
+  processingOfOneHectareDuration: number;
   constructor() {
-    this.Id = 0;
-    this.CropId = 0;
-    this.OperationName = '';
-    this.ProcessingOfOneHectareDuration = 0;
+    this.id = 0;
+    this.cropId = 0;
+    this.operationName = '';
+    this.processingOfOneHectareDuration = 0;
   }
 }

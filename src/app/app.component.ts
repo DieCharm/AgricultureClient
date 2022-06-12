@@ -33,33 +33,53 @@ export class AppComponent {
 
     switch (path) {
       case 'crop':
-        this.httpService.model = new Crop();
+        // @ts-ignore
+        document.getElementById('table-name').innerText = "Crops";
+          this.httpService.model = new Crop();
         break;
       case 'field':
+        // @ts-ignore
+        document.getElementById('table-name').innerText = "Fields";
         this.httpService.model = new Field();
         break;
       case 'incomeandexpenses':
+        // @ts-ignore
+        document.getElementById('table-name').innerText = "Crop Incomes and Expenses";
         this.httpService.model = new IncomeAndExpenses();
         break;
       case 'salesinvoice':
+        // @ts-ignore
+        document.getElementById('table-name').innerText = "Sales Invoices";
         this.httpService.model = new SalesInvoice();
         break;
       case 'operation':
+        // @ts-ignore
+        document.getElementById('table-name').innerText = "Technological Operations";
         this.httpService.model = new TechnologicalOperation();
         break;
       case 'waybill':
+        // @ts-ignore
+        document.getElementById('table-name').innerText = "Planned Waybills";
         this.httpService.model = new PlannedWaybill();
         break;
       case 'requirement':
+        // @ts-ignore
+        document.getElementById('table-name').innerText = "Planned Requirements";
         this.httpService.model = new PlannedRequirement();
         break;
       case 'order':
+        // @ts-ignore
+        document.getElementById('table-name').innerText = "Work Orders";
         this.httpService.model = new WorkOrder();
         break;
       case 'attractingworker':
+        // @ts-ignore
+        document.getElementById('table-name').innerText = "Attracting Workers";
         this.httpService.model = new AttractingWorkers();
         break;
       case 'qualification':
+        // @ts-ignore
+        document.getElementById('table-name').innerText = "Worker Qualifications";
         this.httpService.model = new WorkerQualification();
         break;
     }
@@ -115,9 +135,12 @@ export class AppComponent {
     formComponent.onSubmit.subscribe(() => {
       this.httpService.post(this.currentPath)
         .toPromise()
-        .then(() => {
+        .then((posted) => {
           this.get();
-        });
+        })
+        .catch((error) => {
+          alert("error while posting");
+      });
     });
     formComponent.onEdit = this.editSubject.asObservable();
   }
@@ -129,6 +152,3 @@ export class AppComponent {
     }
   }
 }
-
-
-// mdbTable mdbTableScroll class="w-auto" scrollY="true" maxHeight="200" bordered="true"

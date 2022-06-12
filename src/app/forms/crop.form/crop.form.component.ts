@@ -6,13 +6,12 @@ import {Observable, Subscription} from "rxjs";
 @Component({
   selector: 'crop-form',
   templateUrl: './crop.form.component.html',
-  styleUrls: ['./crop.form.component.css']
+  styleUrls: ['../form.base.css']
 })
 export class CropFormComponent implements OnInit, OnDestroy{
 
   onSubmit = new EventEmitter();
   onEdit: Observable<void> = new Observable<void>();
-  onCancel: Observable<void> = new Observable<void>();
   editSubscription: Subscription = new Subscription();
 
   constructor(public httpService: HttpService) {}

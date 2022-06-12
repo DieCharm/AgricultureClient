@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FormBase} from "../form.base";
+import {WorkerQualification} from "../../../models/workerQualification";
 
 @Component({
   selector: 'app-qualification.form',
   templateUrl: './qualification.form.component.html',
-  styleUrls: ['./qualification.form.component.css']
+  styleUrls: ['../form.base.css']
 })
-export class QualificationFormComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+export class QualificationFormComponent
+  extends FormBase<WorkerQualification>
+  implements OnInit, OnDestroy
+{
+  override ngOnInit() {
+    super.ngOnInit();
   }
-
+  override ngOnDestroy() {
+    super.ngOnDestroy();
+  }
 }

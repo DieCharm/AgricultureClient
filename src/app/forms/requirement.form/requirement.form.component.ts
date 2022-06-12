@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FormBase} from "../form.base";
+import {PlannedRequirement} from "../../../models/plannedRequirement";
 
 @Component({
   selector: 'app-requirement.form',
   templateUrl: './requirement.form.component.html',
-  styleUrls: ['./requirement.form.component.css']
+  styleUrls: ['../form.base.css']
 })
-export class RequirementFormComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class RequirementFormComponent
+  extends FormBase<PlannedRequirement>
+  implements OnInit, OnDestroy
+{
+  override ngOnInit() {
+    super.ngOnInit();
   }
-
+  override ngOnDestroy() {
+    super.ngOnDestroy();
+  }
 }

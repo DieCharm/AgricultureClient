@@ -1,14 +1,14 @@
 export class PlannedWaybill {
-  Id: number;
-  OperationId: number;
-  CarName: string;
-  WorkTime: Date;
-  FuelConsumptionPerAreaUnit: number;
+  id: number;
+  operationId: number;
+  carName: string;
+  workTime: Date;
+  fuelConsumptionPerAreaUnit: number;
   constructor() {
-    this.Id = 0;
-    this.OperationId = 0;
-    this.CarName = '';
-    this.WorkTime = new Date();
-    this.FuelConsumptionPerAreaUnit = 0;
+    this.id = 0;
+    this.operationId = 0;
+    this.carName = '';
+    this.workTime = new Date();
+    this.fuelConsumptionPerAreaUnit = 0;
   }
 }

@@ -1,14 +1,14 @@
 export class PlannedRequirement {
-  Id: number;
-  OperationId: number;
-  MaterialName: string;
-  MaterialPricePerUnit: number;
-  Quantity: number;
+  id: number;
+  operationId: number;
+  materialName: string;
+  materialPricePerUnit: number;
+  quantity: number;
   constructor() {
-    this.Id = 0;
-    this.OperationId = 0;
-    this.MaterialName = '';
-    this.MaterialPricePerUnit = 0;
-    this.Quantity = 0;
+    this.id = 0;
+    this.operationId = 0;
+    this.materialName = '';
+    this.materialPricePerUnit = 0;
+    this.quantity = 0;
   }
 }
