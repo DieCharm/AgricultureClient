@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpService } from "../services/http.service";
 import { environment } from "../environments/environment";
-import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
 import { Crop } from "../models/crop";
 import {Field} from "../models/field";
 import {IncomeAndExpenses} from "../models/incomeAndExpenses";
@@ -14,8 +11,7 @@ import {PlannedRequirement} from "../models/plannedRequirement";
 import {WorkOrder} from "../models/workOrder";
 import {AttractingWorkers} from "../models/attractingWorkers";
 import {WorkerQualification} from "../models/workerQualification";
-import {Subscription} from "rxjs";
-import {CropFormComponent} from "./forms/crop.form/crop.form.component";
+import {Subject, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -25,7 +21,10 @@ import {CropFormComponent} from "./forms/crop.form/crop.form.component";
 export class AppComponent {
   currentPath: string = "";
   array: object[] = [];
+  forTable: any[][] = [];
+  tableHeaders: string[] = [];
   subscription: Subscription = new Subscription();
+  editSubject: Subject<void> = new Subject<void>();
 
   constructor(public httpService: HttpService) { }
 
@@ -76,14 +75,51 @@ export class AppComponent {
         !(result === undefined) ?
           this.array = result as object[]
           : this.array = [];
+
+        this.forTable.splice(0);
+
+        for (let i = 0; i < this.array.length; i++) {
+          this.forTable.push(Object.values(this.array[i]));
+        }
+
+        this.tableHeaders.splice(0);
+        var keys = Object.keys(this.httpService.model);
+
+        for (let i = 0; i < keys.length; i++)
+        {
+          this.tableHeaders.push(keys[i]
+            .replace(/([A-Z])/g, ' $1')
+            .replace(/^./, function(str){ return str.toUpperCase(); }));
+        }
       });
+  }
+
+  delete(id: number) {
+    if (confirm("sure to delete?"))
+    {
+      this.httpService.delete(this.currentPath, id)
+        .toPromise()
+        .then(result => {
+          console.log(result);
+          this.get();
+        });
+    }
+  }
+
+  edit(id: number) {
+    this.httpService.model = this.array[id];
+    this.editSubject.next();
   }
 
   subscribeToForm(formComponent: any) {
     formComponent.onSubmit.subscribe(() => {
-      this.httpService.post(this.currentPath);
-      this.get();
+      this.httpService.post(this.currentPath)
+        .toPromise()
+        .then(() => {
+          this.get();
+        });
     });
+    formComponent.onEdit = this.editSubject.asObservable();
   }
 
   unsubscribe() {
@@ -92,9 +128,7 @@ export class AppComponent {
       this.subscription.unsubscribe();
     }
   }
-
-  delete(id: number) {
-    this.httpService.delete(this.currentPath, id);
-    this.get();
-  }
 }
+
+
+// mdbTable mdbTableScroll class="w-auto" scrollY="true" maxHeight="200" bordered="true"

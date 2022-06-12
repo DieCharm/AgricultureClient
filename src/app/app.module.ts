@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
-import {TableListComponent} from './table.list/table.list.component';
 import {MDBRootModule} from 'angular-bootstrap-md';
 import { CropFormComponent } from './forms/crop.form/crop.form.component';
 import { IncomeandexpensesFormComponent } from './forms/incomeandexpenses.form/incomeandexpenses.form.component';
@@ -34,7 +33,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    TableListComponent,
     CropFormComponent,
     IncomeandexpensesFormComponent,
     FieldFormComponent,
