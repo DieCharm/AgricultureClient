@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBase} from "../form.base";
 import {SalesInvoice} from "../../../models/salesInvoice";
+import {Crop} from "../../../models/crop";
 
 @Component({
   selector: 'app-salesinvoice.form',
@@ -16,5 +17,10 @@ export class SalesinvoiceFormComponent
   }
   override ngOnDestroy() {
     super.ngOnDestroy();
+  }
+
+  renewModel(): void {
+    this.httpService.model = new SalesInvoice();
+    this.inputModel = this.httpService.model as unknown as SalesInvoice;
   }
 }

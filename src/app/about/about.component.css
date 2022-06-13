@@ -1,0 +1,22 @@
+.text-container {
+  width: 100vw;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h3 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+h5 {
+  margin: 20px;
+}
+
+.right-side {
+  align-self: flex-end;
+  margin: 70px 100px;
+}

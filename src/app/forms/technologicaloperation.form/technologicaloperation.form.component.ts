@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBase} from "../form.base";
 import {TechnologicalOperation} from "../../../models/technologicalOperation";
+import {Crop} from "../../../models/crop";
 
 @Component({
   selector: 'app-technologicaloperation.form',
@@ -16,5 +17,10 @@ export class TechnologicaloperationFormComponent
   }
   override ngOnDestroy() {
     super.ngOnDestroy();
+  }
+
+  renewModel(): void {
+    this.httpService.model = new TechnologicalOperation();
+    this.inputModel = this.httpService.model as unknown as TechnologicalOperation;
   }
 }

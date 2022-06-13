@@ -1,6 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBase} from "../form.base";
 import {WorkerQualification} from "../../../models/workerQualification";
+import {PlannedWaybill} from "../../../models/plannedWaybill";
+import {Crop} from "../../../models/crop";
 
 @Component({
   selector: 'app-qualification.form',
@@ -17,5 +19,10 @@ export class QualificationFormComponent
   }
   override ngOnDestroy() {
     super.ngOnDestroy();
+  }
+
+  renewModel(): void {
+    this.httpService.model = new WorkerQualification();
+    this.inputModel = this.httpService.model as unknown as WorkerQualification;
   }
 }

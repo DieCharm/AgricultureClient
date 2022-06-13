@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBase} from "../form.base";
 import {PlannedRequirement} from "../../../models/plannedRequirement";
+import {Crop} from "../../../models/crop";
 
 @Component({
   selector: 'app-requirement.form',
@@ -16,5 +17,10 @@ export class RequirementFormComponent
   }
   override ngOnDestroy() {
     super.ngOnDestroy();
+  }
+
+  renewModel(): void {
+    this.httpService.model = new PlannedRequirement();
+    this.inputModel = this.httpService.model as unknown as PlannedRequirement;
   }
 }

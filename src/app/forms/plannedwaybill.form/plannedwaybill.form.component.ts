@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBase} from "../form.base";
 import {Field} from "../../../models/field";
 import {PlannedWaybill} from "../../../models/plannedWaybill";
+import {Crop} from "../../../models/crop";
 
 @Component({
   selector: 'app-plannedwaybill.form',
@@ -17,5 +18,10 @@ export class PlannedwaybillFormComponent
   }
   override ngOnDestroy() {
     super.ngOnDestroy();
+  }
+
+  renewModel(): void {
+    this.httpService.model = new PlannedWaybill();
+    this.inputModel = this.httpService.model as unknown as PlannedWaybill;
   }
 }

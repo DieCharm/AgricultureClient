@@ -1,40 +1,28 @@
-import {Component, EventEmitter, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
-import {HttpService} from "../../../services/http.service";
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Crop} from "../../../models/crop";
-import {Observable, Subscription} from "rxjs";
+import {FormBase} from "../form.base";
 
 @Component({
   selector: 'crop-form',
   templateUrl: './crop.form.component.html',
   styleUrls: ['../form.base.css']
 })
-export class CropFormComponent implements OnInit, OnDestroy{
-
-  onSubmit = new EventEmitter();
-  onEdit: Observable<void> = new Observable<void>();
-  editSubscription: Subscription = new Subscription();
-
-  constructor(public httpService: HttpService) {}
-
-  inputModel = this.httpService.model as Crop;
-
-  ngOnInit(): void {
-    this.editSubscription = this.onEdit.subscribe(() => {
-      this.inputModel = this.httpService.model as Crop;
-    });
+export class CropFormComponent
+  extends FormBase<Crop>
+  implements OnInit, OnDestroy
+{
+  override ngOnInit() {
+    super.ngOnInit();
+  }
+  override ngOnDestroy() {
+    super.ngOnDestroy();
   }
 
-  ngOnDestroy(): void {
-    if (this.editSubscription)
-    {
-      this.editSubscription.unsubscribe();
-    }
-  }
-
-  submit() {
-    this.httpService.model = this.inputModel;
-    this.onSubmit.emit();
+  renewModel(): void {
     this.httpService.model = new Crop();
-    this.inputModel = this.httpService.model as Crop;
+    this.inputModel = this.httpService.model as unknown as Crop;
   }
 }
+
+
+

@@ -16,6 +16,7 @@ export class HttpService {
 
   post(address: string)
   {
+    console.log(this.model);
     return this.httpClient.post<object>(address, this.model);
   }
 

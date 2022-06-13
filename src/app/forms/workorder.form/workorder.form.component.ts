@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBase} from "../form.base";
 import {WorkOrder} from "../../../models/workOrder";
+import {Crop} from "../../../models/crop";
 
 @Component({
   selector: 'app-workorder.form',
@@ -16,5 +17,10 @@ export class WorkorderFormComponent
   }
   override ngOnDestroy() {
     super.ngOnDestroy();
+  }
+
+  renewModel(): void {
+    this.httpService.model = new WorkOrder();
+    this.inputModel = this.httpService.model as unknown as WorkOrder;
   }
 }

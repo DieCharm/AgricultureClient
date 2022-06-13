@@ -16,9 +16,7 @@ export abstract class FormBase<T> implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.editSubscription = this.onEdit.subscribe(() => {
-      console.log("edit");
       this.inputModel = this.httpService.model as unknown as T;
-      console.log(this.inputModel);
     });
   }
 
@@ -32,8 +30,9 @@ export abstract class FormBase<T> implements OnInit, OnDestroy {
   submit() {
     this.httpService.model = this.inputModel as unknown as object;
     this.onSubmit.emit();
-    this.httpService.model = new Crop();
-    this.inputModel = this.httpService.model as unknown as T;
+    this.renewModel();
   }
+
+  abstract renewModel(): void;
 
 }

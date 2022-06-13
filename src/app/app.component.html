@@ -1,94 +1,69 @@
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link" aria-current="page"
-    routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="crop"
-    (click)="initializePage('crop')">Crop</a>
+    routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="about">
+      About</a>
   </li>
   <li class="nav-item">
     <a class="nav-link"
-       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="incomeandexpenses"
+       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="crud/crop"
+       (click)="initializePage('crop')">Crop</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"
+       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="crud/incomeandexpenses"
     (click)="initializePage('incomeandexpenses')">
-      Crop Income and Expenses</a>
+      Income and Expenses</a>
   </li>
   <li class="nav-item">
     <a class="nav-link"
-       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="field"
+       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="crud/field"
        (click)="initializePage('field')">
       Field</a>
   </li>
   <li class="nav-item">
     <a class="nav-link"
-       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="salesinvoice"
+       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="crud/salesinvoice"
     (click)="initializePage('salesinvoice')">
       Sales Invoice</a>
   </li>
   <li class="nav-item">
     <a class="nav-link"
-       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="operation"
+       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="crud/operation"
     (click)="initializePage('operation')">
-      Technological Operation</a>
+      Technological Operations</a>
   </li>
   <li class="nav-item">
     <a class="nav-link"
-       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="waybill"
+       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="crud/waybill"
     (click)="initializePage('waybill')">
-      Planned Waybill</a>
+      Waybills</a>
   </li>
   <li class="nav-item">
     <a class="nav-link"
-       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="requirement"
+       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="crud/requirement"
     (click)="initializePage('requirement')">
-      Planned Requirement</a>
+      Requirements</a>
   </li>
   <li class="nav-item">
     <a class="nav-link"
-       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="order"
+       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="crud/order"
     (click)="initializePage('order')">
-      Work Order</a>
+      Work Orders</a>
   </li>
   <li class="nav-item">
     <a class="nav-link"
-       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="attractingworker"
+       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="crud/attractingworker"
     (click)="initializePage('attractingworker')">
       Attracting Workers</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" tabindex="-1" aria-disabled="true"
-       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="qualification"
+       routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" routerLink="crud/qualification"
     (click)="initializePage('qualification')">
-      Worker Qualification</a>
+      Worker Qualifications</a>
   </li>
 </ul>
 
-<div class="crud-container">
-  <div class="for-table">
-    <h2 id="table-name"></h2>
-      <table class="table table-striped w-auto" border="1">
-        <thead>
-        <th *ngFor="let header of tableHeaders">
-          {{header}}
-        </th>
-        </thead>
-
-        <tbody>
-        <tr *ngFor="let item of forTable; index as i ">
-          <td *ngFor="let value of item">
-            {{value}}
-          </td>
-          <td>
-            <button (click)="edit(i)" class="edit-button">edit</button>
-          </td>
-          <td>
-            <button (click)="delete(item[0])" class="delete-button">delete</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-  </div>
-  <div class="for-form">
-    <router-outlet (activate)="subscribeToForm($event)" (deactivate)="unsubscribe()"></router-outlet>
-  </div>
-</div>
-
-
+<router-outlet (activate)="controlCrudComponent($event)"></router-outlet>
 

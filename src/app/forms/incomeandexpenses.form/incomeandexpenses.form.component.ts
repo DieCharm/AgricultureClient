@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBase} from "../form.base";
-import {Field} from "../../../models/field";
 import {IncomeAndExpenses} from "../../../models/incomeAndExpenses";
 
 @Component({
@@ -17,5 +16,10 @@ export class IncomeandexpensesFormComponent
   }
   override ngOnDestroy() {
     super.ngOnDestroy();
+  }
+
+  renewModel(): void {
+    this.httpService.model = new IncomeAndExpenses();
+    this.inputModel = this.httpService.model as unknown as IncomeAndExpenses;
   }
 }
